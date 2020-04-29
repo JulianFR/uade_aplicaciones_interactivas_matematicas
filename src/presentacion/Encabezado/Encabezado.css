@@ -1,10 +1,13 @@
 .encabezado {
-    background-color: green;
+    border-bottom: 5px solid hsl(112, 38%, 36%);
+    background-color: hsl(101, 47%, 53%);
     display: flex;
     justify-content: space-between;
 }
 
 .encabezado__juego, .encabezado__nivel {
+    color: white;
+    font-weight: bold;
     margin: 0;
     padding: 1rem;
 }
