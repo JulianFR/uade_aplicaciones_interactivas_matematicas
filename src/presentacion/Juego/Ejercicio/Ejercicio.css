@@ -31,22 +31,10 @@
   .ejercicio {
     display: grid;
     justify-items: center;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
     grid-template-areas:
       ". . a ."
       ". o b ."
-      ". . _ ."
       ". . r .";
-  }
-
-  .ejercicio__incognita {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    width: 150px;
-    height: 52px;
-    border: none;
   }
 
   .ejercicio__operando-a {
@@ -56,7 +44,8 @@
   .ejercicio__operando-b {
     grid-area: b;
     border-bottom: 2px solid black;
-    width: 150px;
+    min-width: 150px;
+    text-align: center;
   }
   
   .ejercicio__operador {
@@ -64,7 +53,6 @@
   }
 
   .ejercicio__igual {
-    grid-area: _;
     display: none;
   }
 

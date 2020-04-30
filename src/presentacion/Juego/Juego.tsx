@@ -42,7 +42,7 @@ export default class Juego extends Component {
 
   render() {
     return (
-      <div>
+      <div className="juego">
         <Ejercicio id={0} cambio={this.manejarCambios} color={this.state.ejercicios[0].color}></Ejercicio>
         <Ejercicio id={1} cambio={this.manejarCambios} color={this.state.ejercicios[1].color}></Ejercicio>
         <Ejercicio id={2} cambio={this.manejarCambios} color={this.state.ejercicios[2].color}></Ejercicio>
