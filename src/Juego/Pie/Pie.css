@@ -17,25 +17,27 @@
 .pie__tiempo-barra {
   height: 40px;
   width: 80%;
-  background-color: lightgray;
-  border-radius: 20px;
+  background-color: hsl(112, 38%, 36%);;
 }
 
 .pie__tiempo-barra--restante {
   display: block;
+  margin: 0 2.5%;
   height: 100%;
   animation-name: comprimir;
   animation-duration: 120s;
+  animation-timing-function: linear;
 }
 
 .pie__tiempo-barra--fondo {
   border: 2px solid hsl(112, 38%, 36%);
+  border-radius: 20px;
 }
 
 @keyframes comprimir {
   from { 
     background-color: hsl(48, 94%, 58%);
-    width: 100%;
+    width: 95%;
   }
   to { 
     background-color: hsl(0, 94%, 58%);

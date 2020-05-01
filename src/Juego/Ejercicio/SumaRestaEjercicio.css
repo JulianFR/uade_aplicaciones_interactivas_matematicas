@@ -8,11 +8,11 @@
   padding: 8px;
 }
 
-.ejercicio--rojo {
+.ejercicio--incorrecto {
   border: 3px solid hsl(0, 60%, 60%);
 }
 
-.ejercicio--verde {
+.ejercicio--correcto {
   border: 3px solid hsl(101, 47%, 53%);
   background-color: hsl(101, 47%, 53%);
 }
