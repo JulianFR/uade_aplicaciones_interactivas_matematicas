@@ -17,11 +17,12 @@
   align-items: center;
   background-color: hsl(101, 47%, 53%);
 }
+
 .acceso__formulario-titulo {
   font-size: 3rem;
-  margin-block-start: 0;
   margin: 2rem 0;
 }
+
 .acceso__formulario-nombre {
   font-size: 2rem;
   border: none;
@@ -30,6 +31,7 @@
   border-radius: 16px;
   margin: 0rem 4rem;
 }
+
 .acceso__formulario-boton {
   display: block;
   background-color: hsl(240, 59%, 55%);
@@ -42,4 +44,31 @@
   font-weight: bold;
   margin: 6rem 0 0;
   padding: 1em 2em;
+}
+
+@media (max-width: 768px) {
+  .acceso__formulario-titulo {
+    font-size: 2rem;
+    margin: 0 0 2rem;
+  }
+
+  .acceso__formulario-nombre {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .acceso__formulario-boton {
+    font-size: 1rem;
+    margin: 3rem 0 0;
+  }  
+}
+
+@media (max-width: 320px) {
+  .acceso__formulario-boton {
+    margin: 3rem 0 2rem;
+  }  
+
+  .acceso__formulario {
+    padding: 1rem;
+  }
 }
