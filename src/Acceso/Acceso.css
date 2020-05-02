@@ -1,0 +1,45 @@
+.acceso {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(240, 46%, 30%);
+}
+
+.acceso__formulario {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border: 1rem solid hsl(112, 38%, 36%);
+  padding: 3rem;
+  border-radius: 16px;
+  align-items: center;
+  background-color: hsl(101, 47%, 53%);
+}
+.acceso__formulario-titulo {
+  font-size: 3rem;
+  margin-block-start: 0;
+  margin: 2rem 0;
+}
+.acceso__formulario-nombre {
+  font-size: 2rem;
+  border: none;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 16px;
+  margin: 0rem 4rem;
+}
+.acceso__formulario-boton {
+  display: block;
+  background-color: hsl(240, 59%, 55%);
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 10px hsl(240, 46%, 30%);
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 6rem 0 0;
+  padding: 1em 2em;
+}
