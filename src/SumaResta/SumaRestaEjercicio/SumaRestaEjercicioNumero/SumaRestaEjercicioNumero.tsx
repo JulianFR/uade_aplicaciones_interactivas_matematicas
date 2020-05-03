@@ -1,6 +1,6 @@
 import React from 'react';
-import Digito from './Digito/Digito';
-import { EjercicioDigito } from './Digito/Digito.model';
+import Digito from './SumaRestaEjercicioNumeroDigito/SumaRestaEjercicioNumeroDigito';
+import { EjercicioDigito } from './SumaRestaEjercicioNumeroDigito/SumaRestaEjercicioNumeroDigito.model';
 import { obtenerDigitos } from './SumaRestaEjercicioNumero.service';
 import { SumaRestaEjercicioNumeroProps } from './SumaRestaEjercicioNumero.model';
 

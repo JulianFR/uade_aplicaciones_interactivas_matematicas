@@ -1,8 +1,8 @@
 import React from 'react';
 import './SumaRestaEjercicio.css';
 import * as servicio from './SumaRestaEjercicio.service';
-import Numero from './Numero/SumaRestaEjercicioNumero';
-import Operador from './Operador/Operador';
+import Numero from './SumaRestaEjercicioNumero/SumaRestaEjercicioNumero';
+import Operador from './SumaRestaEjercicioOperador/SumaRestaEjercicioOperador.component';
 import { EjercicioProps, SumaRestaEjercicioIncognita } from './SumaRestaEjercicio.model';
 
 export default (props: EjercicioProps) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import './Pie.css';
-import { PieProps } from './Pie.model';
+import './SumaRestaPie.css';
+import { PieProps } from './SumaRestaPie.model';
 
 export default (props: PieProps) => (
   <div className="pie">

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Ejercicio from './Ejercicio/SumaRestaEjercicio.component';
+import Ejercicio from './SumaRestaEjercicio/SumaRestaEjercicio.component';
 import './SumaResta.css';
-import Pie from './Pie/Pie';
-import Encabezado from './Encabezado/Encabezado';
+import Pie from './SumaRestaPie/SumaRestaPie.component';
+import Encabezado from './SumaRestaCabeza/SumaRestaCabeza.component';
 import { SumaRestaState, JuegoNiveles } from './SumaResta.model';
-import { SumaRestaEjercicio } from './Ejercicio/SumaRestaEjercicio.model';
+import { SumaRestaEjercicio } from './SumaRestaEjercicio/SumaRestaEjercicio.model';
 
 export default class SumaRestaComponent extends Component {
   readonly state: SumaRestaState = {

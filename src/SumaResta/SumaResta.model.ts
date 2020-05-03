@@ -1,4 +1,4 @@
-import { SumaRestaEjercicio } from "./Ejercicio/SumaRestaEjercicio.model";
+import { SumaRestaEjercicio } from "./SumaRestaEjercicio/SumaRestaEjercicio.model";
 
 export type JuegoNiveles = 1 | 2 | 3;
 export type SumaRestaColores = 'rojo' | 'verde' | 'gris';

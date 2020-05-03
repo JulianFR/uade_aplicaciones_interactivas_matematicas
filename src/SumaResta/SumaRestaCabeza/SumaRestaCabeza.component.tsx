@@ -1,6 +1,6 @@
 import React from 'react';
-import './Encabezado.css';
-import { EncabezadoProps } from './Encabezado.model';
+import './SumaRestaCabeza.css';
+import { EncabezadoProps } from './SumaRestaCabeza.model';
 
 export default (props: EncabezadoProps) => (
   <header className='encabezado'>
