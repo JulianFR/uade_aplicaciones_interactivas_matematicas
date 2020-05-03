@@ -48,7 +48,7 @@ export default (props: EjercicioProps) => {
       </div>
       {dibujarNumero('operandoB')}
       <div className="ejercicio__igual">
-        <img src="=.png" alt="El signo '='"></img>
+        <img src="/=.png" alt="El signo '='"></img>
       </div>
       {dibujarNumero('resultado')}
     </div>

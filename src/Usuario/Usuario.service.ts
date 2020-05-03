@@ -14,4 +14,8 @@ export class UsuarioService {
   public static agregarPuntaje(puntaje: Puntaje) {
     UsuarioService.usuario?.actualizarPuntuaciones(puntaje);
   }
+
+  public static obtenerNombre() {
+    return UsuarioService.usuario?.nombre;
+  }
 }
