@@ -1,0 +1,102 @@
+[
+  {
+    "jugador": "Adriana",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 1000
+      }
+    ]
+  },
+  {
+    "jugador": "Roco",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 900
+      }
+    ]
+  },
+  {
+    "jugador": "Emilio",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 800
+      }
+    ]
+  },
+  {
+    "jugador": "Guille",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 700
+      }
+    ]
+  },
+  {
+    "jugador": "Rex",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 600
+      }
+    ]
+  },
+  {
+    "jugador": "Dilo",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 500
+      }
+    ]
+  },
+  {
+    "jugador": "Lystro",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 400
+      }
+    ]
+  },
+  {
+    "jugador": "Igu",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 300
+      }
+    ]
+  },
+  {
+    "jugador": "Anky",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 200
+      }
+    ]
+  },
+  {
+    "jugador": "Argen",
+    "avatar": "avi",
+    "puntajes": [
+      {
+        "juego": "sumas_y_restas",
+        "puntos": 100
+      }
+    ]
+  }
+]

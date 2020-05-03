@@ -31,6 +31,6 @@ export default () =>
         <p>0</p>
       </li>
     </ul>
-    <Link className="principal__opcion" to="/principal">Mejores Puntuaciones</Link>
+    <Link className="principal__opcion" to="/puntajes">Mejores Puntuaciones</Link>
     <Link className="principal__opcion" to="/" onClick={UsuarioService.limpiarUsuario}>Salir</Link>
   </div>;
