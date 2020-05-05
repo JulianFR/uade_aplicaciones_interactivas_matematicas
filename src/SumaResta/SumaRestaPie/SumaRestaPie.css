@@ -11,17 +11,36 @@
   display: flex;
   justify-content: space-between;
   margin: 0 1rem;
+  align-items: center;
 }
 
-.pie__intentos, .pie__tiempo-numero{
+.pie__intentos,
+.pie__tiempo-numero {
   color: white;
   font-weight: bold;
+}
+
+.pie__intentos {
+  display: flex;
+  flex-direction: column;
+}
+
+.pie__intentos-huevos {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pie__intentos-huevo {
+  width: 50px;
+  margin: 0 1rem;
 }
 
 .pie__tiempo-barra {
   height: 40px;
   width: 80%;
-  background-color: hsl(112, 38%, 36%);;
+  background-color: hsl(112, 38%, 36%);
 }
 
 .pie__tiempo-barra--restante {
@@ -38,7 +57,7 @@
   border-radius: 20px;
 }
 
-.pie__boton{
+.pie__boton {
   display: inline-block;
   text-align: center;
   background-color: hsl(240, 59%, 55%);
@@ -53,12 +72,22 @@
 }
 
 @keyframes comprimir {
-  from { 
+  from {
     background-color: hsl(48, 94%, 58%);
     width: 95%;
   }
-  to { 
+  to {
     background-color: hsl(0, 94%, 58%);
     width: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .pie__intentos-huevo {
+    width: 20px;
+  }
+
+  .pie__boton {
+    font-size: 1rem;
   }
 }
