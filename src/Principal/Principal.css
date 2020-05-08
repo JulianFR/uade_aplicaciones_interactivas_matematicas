@@ -10,7 +10,6 @@
 .principal__avatar {
   width: 200px;
   height: 200px;
-  background-image: url("/avi.png");
   background-position: center;
   background-size: cover;
   border-radius: 100%;

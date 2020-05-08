@@ -1,6 +1,7 @@
 export class Usuario {
   constructor(
     public readonly nombre: string,
+    public readonly avatar: string,
     public readonly puntuaciones: PuntajeHistorica[] = []
   ) { }
 

@@ -20,9 +20,21 @@
 
 .acceso__formulario-titulo {
   font-size: 3rem;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
 }
 
+.acceso__formulario-mensaje {
+  margin: 0;
+}
+
+.acceso__formulario-avatar {
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 100%;
+  margin: 2rem;
+}
 .acceso__formulario-nombre {
   font-size: 2rem;
   border: none;
@@ -60,13 +72,13 @@
   .acceso__formulario-boton {
     font-size: 1rem;
     margin: 3rem 0 0;
-  }  
+  }
 }
 
 @media (max-width: 320px) {
   .acceso__formulario-boton {
     margin: 3rem 0 2rem;
-  }  
+  }
 
   .acceso__formulario {
     padding: 1rem;

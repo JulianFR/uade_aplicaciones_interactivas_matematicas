@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default () =>
   <div className="principal">
-    <div className="principal__avatar"></div>
+    <div className="principal__avatar" style={{backgroundImage: `url("/${UsuarioService.obtenerAvatar()}.png")`}}></div>
     <h1 className="principal__nombre">{UsuarioService.obtenerNombre()}</h1>
     <h3 className="principal__subtitulo">¿Qué te gustaría practicar hoy?</h3>
     <ul className="principal__juegos">

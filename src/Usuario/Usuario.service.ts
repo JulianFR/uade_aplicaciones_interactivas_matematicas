@@ -7,8 +7,8 @@ export class UsuarioService {
     UsuarioService.usuario = undefined;
   }
 
-  public static crearUsuario(nombre: string) {
-    UsuarioService.usuario = new Usuario(nombre);
+  public static crearUsuario(nombre: string, avatar: string) {
+    UsuarioService.usuario = new Usuario(nombre, avatar);
   }
 
   public static agregarPuntaje(puntaje: Puntaje) {
@@ -17,5 +17,9 @@ export class UsuarioService {
 
   public static obtenerNombre() {
     return UsuarioService.usuario?.nombre;
+  }
+
+  public static obtenerAvatar() {
+    return UsuarioService.usuario?.avatar;
   }
 }

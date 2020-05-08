@@ -41,7 +41,7 @@
   },
   {
     "jugador": "Rex",
-    "avatar": "avi",
+    "avatar": "raptor",
     "puntajes": [
       {
         "juego": "sumas_y_restas",
@@ -51,7 +51,7 @@
   },
   {
     "jugador": "Dilo",
-    "avatar": "avi",
+    "avatar": "raptor",
     "puntajes": [
       {
         "juego": "sumas_y_restas",
@@ -81,7 +81,7 @@
   },
   {
     "jugador": "Anky",
-    "avatar": "avi",
+    "avatar": "raptor",
     "puntajes": [
       {
         "juego": "sumas_y_restas",
