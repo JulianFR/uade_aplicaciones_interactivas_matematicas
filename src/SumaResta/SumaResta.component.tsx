@@ -15,6 +15,8 @@ export default class SumaRestaComponent extends Component {
     ejercicios: [
       new SumaRestaEjercicio(),
       new SumaRestaEjercicio(),
+      new SumaRestaEjercicio(),
+      new SumaRestaEjercicio(),
       new SumaRestaEjercicio()
     ]
   };
@@ -85,7 +87,7 @@ export default class SumaRestaComponent extends Component {
           nivel++;
           intentos = 3;
           tiempo = 120;
-          for (let cantidad = 3 + this.state.nivel; cantidad > 0; cantidad--) { ejercicios.push(new SumaRestaEjercicio(nivel as JuegoNiveles)); }
+          for (let cantidad = 5 - this.state.nivel; cantidad > 0; cantidad--) { ejercicios.push(new SumaRestaEjercicio(nivel as JuegoNiveles)); }
         } else {
           alert("Ganaste pipa, tu puntuación es: " + this.state.puntaje);
         }
