@@ -1,0 +1,87 @@
+.ejercicio {
+  border-radius: 16px;
+  border: 3px solid hsl(0, 60%, 60%, 0);
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 8px;
+  align-items: center;
+}
+
+.ejercicio--incorrecto {
+  border: 3px solid hsl(0, 60%, 60%);
+}
+
+.ejercicio--correcto {
+  border: 3px solid hsl(101, 47%, 53%);
+  background-color: hsl(101, 47%, 53%);
+}
+
+.ejercicio__incognita {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  width: 150px;
+  height: 52px;
+  border-radius: 8px;
+  background-color: lightgray;
+}
+.ejercicio__imagen{
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: lightyellow;
+  max-width: 450px;
+}
+.ejercicio__imagen>div{
+  
+  display: flex;
+  align-items: center;
+
+}
+.ejercicio__imagen img{
+
+  max-height: 50px;
+
+}
+
+@media (max-width: 568px) {
+  .ejercicio {
+    display: grid;
+    justify-items: center;
+    grid-template-areas:
+      ". . a ."
+      ". o b ."
+      ". . r .";
+  }
+  
+  .ejercicio__operando-a {
+    grid-area: a;
+  }
+
+  .ejercicio__operando-b {
+    grid-area: b;
+    border-bottom: 2px solid black;
+    min-width: 150px;
+    text-align: center;
+  }
+  
+  .ejercicio__operador {
+    grid-area: o;
+  }
+
+  .ejercicio__igual {
+    display: none;
+  }
+
+  .ejercicio__resultado {
+    grid-area: r;
+  }
+
+  .ejercicio__elemento {
+      display: inherit;
+  }
+}

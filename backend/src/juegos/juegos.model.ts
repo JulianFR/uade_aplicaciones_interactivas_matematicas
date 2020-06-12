@@ -1,0 +1,1 @@
+export type Niveles = 1 | 2 | 3;
