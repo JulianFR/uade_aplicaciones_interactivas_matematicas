@@ -1,72 +1,18 @@
-import { obtenerPuntajes, buscarSesion } from "../sesiones/sesiones.service";
+import { buscarSesion } from "../sesiones/sesiones.service";
+import { obtenerCliente, cerrarCliente } from "../mongodb/mongodb.service";
 
-const mejoresPuntajes: any = {
-  "todos":
-    [{
-      "jugador": "Adriana",
-      "avatar": "avi",
-      "puntos": 1000,
-    },
-    {
-      "jugador": "Roco",
-      "avatar": "ovo",
-      "puntos": 900,
-    },
-    {
-      "jugador": "Emilio",
-      "avatar": "ovo",
-      "puntos": 800,
-    },
-    {
-      "jugador": "Guille",
-      "avatar": "avi",
-      "puntos": 700,
-    },
-    {
-      "jugador": "Rex",
-      "avatar": "raptor",
-      "puntos": 600,
-    },
-    {
-      "jugador": "Dilo",
-      "avatar": "ovo",
-      "puntos": 500,
-    },
-    {
-      "jugador": "Lystro",
-      "avatar": "avi",
-      "puntos": 400,
-    },
-    {
-      "jugador": "Igu",
-      "avatar": "avi",
-      "puntos": 300,
-    },
-    {
-      "jugador": "Anky",
-      "avatar": "raptor",
-      "puntos": 200,
-    },
-    {
-      "jugador": "Argen",
-      "avatar": "avi",
-      "puntos": 100,
-    }]
-};
+export async function getPuntajes() {
+  const cliente = await obtenerCliente();
+  const puntajes = await cliente.db().collection("puntajes").find({}).toArray();
 
-export function getPuntajes(juego?: string) {
-  if (juego) {
-    if (!mejoresPuntajes[juego]) { mejoresPuntajes[juego] = []; }
+  cerrarCliente();
 
-    return mejoresPuntajes[juego];
-  }
-
-  return mejoresPuntajes;
+  return puntajes;
 }
 
-export function postPuntaje(sesion: number, juego: string, puntos: number) {
-  const sesionBuscada = buscarSesion(sesion);
-  const puntajes = obtenerPuntajes(sesion);
+export async function postPuntaje(sesion: string, juego: string, puntos: number) {
+  const sesionBuscada = await buscarSesion(sesion);
+  const puntajes = sesionBuscada.puntajes;
   const puntajeExistente = puntajes[puntajes.findIndex((p: any) => p.juego === juego)];
 
   if (!puntajeExistente) {
@@ -75,30 +21,41 @@ export function postPuntaje(sesion: number, juego: string, puntos: number) {
     puntajeExistente.puntos = puntos;
   }
 
+  const cliente = await obtenerCliente();
+  await cliente.db().collection("sesiones").findOneAndReplace({ _id: sesionBuscada._id }, sesionBuscada);
+
+  cerrarCliente();
+
   return {
-    posicion: actualizarMejoresPuntajes(sesionBuscada.jugador, juego, sesionBuscada.avatar, puntos)
+    posicion: await actualizarMejoresPuntajes(sesionBuscada.jugador, juego, sesionBuscada.avatar, puntos)
   };
 }
 
-export function cerrarPuntaje(sesion: number) {
-  const sesionBuscada = buscarSesion(sesion);
-  const puntajes = obtenerPuntajes(sesion);
+export async function cerrarPuntaje(sesion: string) {
+  const sesionBuscada = await buscarSesion(sesion);
+  const puntajes = sesionBuscada.puntajes;
   const puntos = puntajes.reduce((total: number, p: any) => total + p.puntos, 0);
 
   return {
-    posicion: actualizarMejoresPuntajes(sesionBuscada.jugador, "todos", sesionBuscada.avatar, puntos),
+    posicion: await actualizarMejoresPuntajes(sesionBuscada.jugador, "todos", sesionBuscada.avatar, puntos),
     puntos
   };
 }
 
-function actualizarMejoresPuntajes(jugador: string, juego: string, avatar: string, puntos: number) {
-  const puntajes: any[] = getPuntajes(juego);
+async function actualizarMejoresPuntajes(jugador: string, juego: string, avatar: string, puntos: number) {
+  const cliente = await obtenerCliente();
+  const puntuaciones = (await cliente.db().collection("puntajes").find({ juego }).toArray()).pop();
+  const puntajes = puntuaciones.puntajes;
   const posicion = puntajes.findIndex((puntaje: any) => puntaje.puntos < puntos);
   const posicionFinal = posicion === -1 ? puntajes.length : posicion;
-
+  
   puntajes.splice(posicionFinal, 0, { jugador, avatar, puntos });
-
+  
   if ((juego === "todos" && puntajes.length > 10) || (juego !== "todos" && puntajes.length > 3)) puntajes.pop();
+  
+  await cliente.db().collection("puntajes").findOneAndReplace({ _id: puntuaciones._id }, puntuaciones);
+  
+  cerrarCliente();
 
   return posicionFinal;
 }

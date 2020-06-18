@@ -1,37 +1,38 @@
-import { Juego } from "../juegos/juego.class";
 import { lanzarError } from "../main.util";
 import { cerrarPuntaje } from "../puntajes/puntajes.service";
+import { obtenerCliente, cerrarCliente } from "../mongodb/mongodb.service";
+import { ObjectID } from "mongodb";
+import { Sesion } from "./sesiones.model";
 
-const sesiones: any[] = [];
+export async function crearSesion(jugador: string, avatar: string) {
+  const cliente = await obtenerCliente();
+  const sesion = await cliente.db().collection("sesiones").insertOne({ jugador, avatar, puntajes: [] });
 
-export function crearSesion(jugador: string, avatar: string) {
-  sesiones.push({ sesion: sesiones.length, jugador, avatar, puntajes: [] });
+  cerrarCliente();
 
-  return {sesion: sesiones.length - 1}
+  return { sesion: sesion.insertedId };
 }
 
-export function destruirSesion(sesion: number) {
-  return cerrarPuntaje(sesion);
+export async function destruirSesion(sesion: string) {
+  const cliente = await obtenerCliente();
+  const puntaje = await cerrarPuntaje(sesion);
+  
+  await cliente.db().collection("sesiones").findOneAndDelete({ _id: new ObjectID(sesion) });
+
+  cerrarCliente();
+
+  return puntaje;
 }
 
-export function buscarSesion(sesion: number) {
+export async function buscarSesion(sesion: string) {
   if (sesion === undefined || sesion === null) { lanzarError(400, "No es posíble encontrar la sesión, sesion nulo: " + sesion); }
 
-  const sesionBuscada = sesiones[sesion];
+  const cliente = await obtenerCliente();
+  const sesionBuscada: Sesion = (await cliente.db().collection("sesiones").find({ _id: new ObjectID(sesion) }).toArray()).pop();
+
+  cerrarCliente();
 
   if (!sesionBuscada) { lanzarError(404, "No se encuentra la sesión: " + sesion); }
 
   return sesionBuscada;
-}
-
-export function obtenerJuego(sesion: number) {
-  const juego = buscarSesion(sesion).juego;
-
-  if (!juego) { lanzarError(404, "La sesión no cuenta con un juego: " + sesion); }
-
-  return new Juego({ ...juego });
-}
-
-export function obtenerPuntajes(sesion: number) {
-  return buscarSesion(sesion).puntajes;
 }

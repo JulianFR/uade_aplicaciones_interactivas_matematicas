@@ -1,6 +1,6 @@
 export class Sesion {
   constructor(
-    public readonly sesion: number,
+    public readonly _id: string,
     public readonly jugador: string,
     public readonly avatar: string,
     public readonly puntajes: Puntaje[] = []

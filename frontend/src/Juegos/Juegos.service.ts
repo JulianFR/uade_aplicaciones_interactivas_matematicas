@@ -1,6 +1,6 @@
 import { SesionService } from "../Sesion/Sesion.service";
 
-export async function subirPuntaje(juego: string, puntos: number, sesion?: number) {
+export async function subirPuntaje(juego: string, puntos: number, sesion?: string) {
   if (sesion === undefined || sesion === null) { return 0; }
 
   SesionService.agregarPuntaje(juego, puntos);

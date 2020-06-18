@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './Acceso.css';
 import { withRouter } from 'react-router';
 import { SesionService } from '../Sesion/Sesion.service';
+import ModalComponent from '../UI/Modal/Modal.component';
+import { Link } from 'react-router-dom';
 
 class AccesoComponent extends React.Component<any> {
   readonly avatares = ["avi", "raptor", "ovo"];
   readonly nombre = React.createRef<HTMLInputElement>();
   readonly state = {
     avatar: 0,
-    ocupado: false
+    estado: ""
   };
 
   constructor(props: any) {
@@ -20,20 +22,20 @@ class AccesoComponent extends React.Component<any> {
 
   async componentDidMount() {
     try {
-      this.setState({ ocupado: true });
+      this.setState({ estado: "Recuperando tu sesión..." });
 
       if (await SesionService.descargarSesion()) { this.props.history.push("/principal"); }
     }
     catch (error) {
       alert("¡Ups! Algo salió mal...");
     } finally {
-      this.setState({ ocupado: false });
+      this.setState({ estado: "" });
     }
   }
 
   async comenzar() {
     try {
-      this.setState({ ocupado: true });
+      this.setState({ estado: "Creando tu sesión..." });
 
       await SesionService.crearSesion(this.nombre.current?.value || "Max", this.avatares[this.state.avatar]);
 
@@ -42,7 +44,7 @@ class AccesoComponent extends React.Component<any> {
     catch (error) {
       alert("¡Ups! Algo salió mal...");
     } finally {
-      this.setState({ ocupado: false });
+      this.setState({ estado: "" });
     }
   }
 
@@ -54,14 +56,20 @@ class AccesoComponent extends React.Component<any> {
 
   render() {
     return (
-      <div className="acceso">
-        <div className="acceso__formulario">
-          <h1 className="acceso__formulario-titulo">¡Bienvenido!</h1>
-          <p className="acceso__formulario-mensaje">Hacé clic en la imagen para elegir tu avatar</p>
-          <div className="acceso__formulario-avatar" style={{ backgroundImage: `url("/${this.avatares[this.state.avatar]}.png")` }} onClick={this.cambiarAvatar}></div>
-          <input ref={this.nombre} type="text" placeholder="Ingresá tu Nombre" className="acceso__formulario-nombre" />
-          <button className="acceso__formulario-boton" onClick={this.comenzar}>Comenzar</button>
-        </div>
+      <div className="acceso"> {this.state.estado
+        ? <ModalComponent>
+          <p className="juego__texto">{this.state.estado || "Cargando..."}</p>
+        </ModalComponent>
+        : <Fragment>
+          <div className="acceso__formulario">
+            <h1 className="acceso__formulario-titulo">¡Bienvenido!</h1>
+            <p className="acceso__formulario-mensaje">Hacé clic en la imagen para elegir tu avatar</p>
+            <div className="acceso__formulario-avatar" style={{ backgroundImage: `url("/${this.avatares[this.state.avatar]}.png")` }} onClick={this.cambiarAvatar}></div>
+            <input ref={this.nombre} type="text" placeholder="Ingresá tu Nombre" className="acceso__formulario-nombre" />
+            <button className="acceso__formulario-boton" onClick={this.comenzar}>Comenzar</button>
+          </div>
+          <Link className="acceso__mejores-puntuaciones boton--verde" to="/puntajes">Mejores Puntuaciones</Link>
+        </Fragment>}
       </div>
     );
   }

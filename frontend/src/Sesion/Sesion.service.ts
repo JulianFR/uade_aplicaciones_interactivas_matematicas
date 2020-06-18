@@ -14,7 +14,7 @@ export class SesionService {
       const respuesta = await fetch("http://127.0.0.1:3001/api/v1.0/sesiones/" + sesionId);
       const sesionDto = (await respuesta.json()).data;
 
-      this.sesion = new Sesion(sesionDto.sesion, sesionDto.jugador, sesionDto.avatar, sesionDto.puntajes);
+      this.sesion = new Sesion(sesionDto._id, sesionDto.jugador, sesionDto.avatar, sesionDto.puntajes);
 
       return this.sesion;
     } catch (error) {
@@ -42,7 +42,7 @@ export class SesionService {
     const body = JSON.stringify({ jugador, avatar });
     const headers = { "Content-Type": "application/json" };
     const respuesta = await fetch("http://127.0.0.1:3001/api/v1.0/sesiones", { method: "POST", body, headers });
-    const sesion: number = (await respuesta.json()).data.sesion;
+    const sesion: string = (await respuesta.json()).data.sesion;
 
     SesionService.sesion = new Sesion(sesion, jugador, avatar, []);
     localStorage.setItem("sesion", sesion.toString());
@@ -57,7 +57,7 @@ export class SesionService {
   }
 
   public static obtenerSesionId() {
-    return SesionService.sesion?.sesion;
+    return SesionService.sesion?._id;
   }
 
   public static obtenerJugador() {

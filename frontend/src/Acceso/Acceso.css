@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: hsl(240, 46%, 30%);
@@ -36,6 +37,7 @@
   border-radius: 100%;
   margin: 2rem;
 }
+
 .acceso__formulario-nombre {
   font-size: 2rem;
   border: none;
@@ -55,6 +57,20 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 6rem 0 0;
+  padding: 1em 2em;
+  text-decoration: none;
+}
+
+.acceso__mejores-puntuaciones {
+  display: block;
+  background-color: hsl(101, 47%, 53%);
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0px 10px hsl(112, 38%, 36%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 3rem 0 0;
   padding: 1em 2em;
   text-decoration: none;
 }

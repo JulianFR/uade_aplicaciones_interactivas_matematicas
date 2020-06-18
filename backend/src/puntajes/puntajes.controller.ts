@@ -6,7 +6,7 @@ export class PuntajesController {
 
   constructor() {
     this.ruta
-      .get("/", (req, res) => res.json({ data: servicio.getPuntajes() }))
-      .post("/", (req, res) => res.json({ data: servicio.postPuntaje(req.body.sesion, req.body.juego, req.body.puntos) }));
+      .get("/", async (req, res) => res.json({ data: await servicio.getPuntajes() }))
+      .post("/", async (req, res) => res.json({ data: await servicio.postPuntaje(req.body.sesion, req.body.juego, req.body.puntos) }));
   }
 }
