@@ -11,4 +11,4 @@ express()
   .use("/api/v1.0/puntajes", new PuntajesController().ruta)
   .use("/api/v1.0/sesiones", new SesionesController().ruta)
   .use(atraparErrores)
-  .listen(3001, () => console.log("HOLIS"));
+  .listen(3001, () => console.log("OLO"));

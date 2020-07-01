@@ -2,7 +2,7 @@ import { lanzarError } from "../main.util";
 import { cerrarPuntaje } from "../puntajes/puntajes.service";
 import { obtenerCliente, cerrarCliente } from "../mongodb/mongodb.service";
 import { ObjectID } from "mongodb";
-import { Sesion } from "./sesiones.model";
+import { SesionDto } from "./sesiones.model";
 
 export async function crearSesion(jugador: string, avatar: string) {
   const cliente = await obtenerCliente();
@@ -28,7 +28,7 @@ export async function buscarSesion(sesion: string) {
   if (sesion === undefined || sesion === null) { lanzarError(400, "No es posíble encontrar la sesión, sesion nulo: " + sesion); }
 
   const cliente = await obtenerCliente();
-  const sesionBuscada: Sesion = (await cliente.db().collection("sesiones").find({ _id: new ObjectID(sesion) }).toArray()).pop();
+  const sesionBuscada: SesionDto = (await cliente.db().collection("sesiones").find({ _id: new ObjectID(sesion) }).toArray()).pop();
 
   cerrarCliente();
 

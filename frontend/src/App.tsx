@@ -14,7 +14,7 @@ export default () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={AccesoComponent}></Route>
-        <Route path="/principal" exact render={ () => <PrincipalComponent avatar={SesionService.obtenerAvatar()} jugador={SesionService.obtenerJugador()}></PrincipalComponent>}></Route>
+        <Route path="/principal" exact render={() => <PrincipalComponent avatar={SesionService.obtenerAvatar()} jugador={SesionService.obtenerJugador()}></PrincipalComponent>}></Route>
         <Route path="/juegos/sumas-y-restas" exact component={SumaRestaComponent}></Route>
         <Route path="/juegos/asociacion" exact component={AsociacionComponent}></Route>
         <Route path="/puntajes" exact component={PuntuacionesComponent}></Route>

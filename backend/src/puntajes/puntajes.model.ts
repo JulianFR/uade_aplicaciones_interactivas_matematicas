@@ -1,4 +1,4 @@
-export interface Puntuacion {
+export interface PuntuacionDto {
   juego: string;
   puntajes: [{
     jugador: string;

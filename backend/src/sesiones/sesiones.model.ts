@@ -1,4 +1,4 @@
-export interface Sesion {
+export interface SesionDto {
   _id: string;
   jugador: string;
   avatar: string;
